@@ -32,6 +32,7 @@ class Player{
           if (ypos>height){
           score=0;
           //Reset Game
+          gameState="LOSE";
            
           }
          xpos+=hspeed;//Increase horizontal speed
@@ -48,4 +49,30 @@ class Player{
        return false;
     }
   }
+  void update(Platform a, Platform b){
+            //Player hitting the platforms
+          if ((this.collisionListener(a) ||  (this.collisionListener(b))) && vspeed>0)
+              {
+              acceleration=-4;
+            
+              //bounce effect
+              if (vspeed>0){
+              vspeed=-0.5*vspeed;}
+              }
+          else
+              {
+              acceleration=0.09;
+              }
+          //vertical speed limiter
+          if (pow(vspeed,2)<pow(12,2))
+              {
+              vspeed+=acceleration;
+              }
+          else
+              {
+               vspeed=12; 
+              }
+              render();
+       
+   }
 }
