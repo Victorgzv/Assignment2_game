@@ -1,6 +1,6 @@
 String gameState;
 int score=0;
-Player player= new Player();
+Player player= new Player(400,50,0.5,20,#2F8E0A);
 Platform platform1,platform2;
 void setup(){
 size(800,600);
@@ -18,7 +18,9 @@ void draw(){
     winGame();
   }else if(gameState =="LOSE"){
     loseGame();
+     startGame();
   }
+ 
 }
 
 void startGame(){
@@ -33,7 +35,7 @@ void startGame(){
 void playGame(){
   platform1.update();
   platform2.update();
-  
+  player.render();
 }
 void winGame(){
 }

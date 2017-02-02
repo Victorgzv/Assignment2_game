@@ -18,11 +18,12 @@ class Platform{
           }
           xpos+=speed;
           fill(Color);
-          ellipse(xpos,ypos,(size),(size));
+          //ellipse(xpos,ypos,(size),(size));
+          rect(xpos,ypos, size ,size);
           fill(0,0,0);
           textSize(25);
           textAlign(CENTER);
-          text("↑",xpos,ypos+8); 
+          text("↑",xpos+12,ypos+22); 
   }
    
 }
