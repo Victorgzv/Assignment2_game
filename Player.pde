@@ -33,7 +33,7 @@ class Player{
           score=0;
           //Reset Game
           gameState="LOSE";
-           
+          reset();
           }
          xpos+=hspeed;//Increase horizontal speed
           fill(Color);
@@ -51,28 +51,36 @@ class Player{
   }
   void update(Platform a, Platform b){
             //Player hitting the platforms
-          if ((this.collisionListener(a) ||  (this.collisionListener(b))) && vspeed>0)
-              {
-              acceleration=-4;
-            
+          if ((this.collisionListener(a) ||  (this.collisionListener(b))) && vspeed>0){
+              acceleration=-4;  
               //bounce effect
               if (vspeed>0){
-              vspeed=-0.5*vspeed;}
+                vspeed=-0.5*vspeed;
               }
-          else
-              {
-              acceleration=0.09;
-              }
+          }else{
+                acceleration=0.01;
+          }
           //vertical speed limiter
-          if (pow(vspeed,2)<pow(12,2))
-              {
+          if (pow(vspeed,2)<pow(12,2)){
               vspeed+=acceleration;
-              }
-          else
-              {
+          }else{
                vspeed=12; 
-              }
-              render();
+          }
+          
        
    }
+   void reset(){
+        // If Player hits the bottom of the screen
+          this.xpos=400;
+          this.ypos=20;
+          this.vspeed=0;
+          this.hspeed=0;
+          this.size=20;
+          platform1.speed=platform1.initial_speed;
+          platform2.speed=platform2.initial_speed;
+          platform1.xpos=random(0,width-50);
+          frameRate(60);
+          platform2.xpos=random(0,width-50);
+          gameState="LOSE";
+     }
 }

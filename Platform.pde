@@ -12,7 +12,7 @@ class Platform{
   }
   void update(){
           //If the platform hits the borders
-          if (xpos<0+size || xpos>width-size)
+          if (xpos<0 || xpos>width-size)
           {
           speed=speed*-1;//Change direction
           }
