@@ -43,7 +43,7 @@ class Player{
   //Calculate distance between player and platforms
   boolean collisionListener(Platform a){
     
-    if(dist(this.xpos, this.ypos, a.xpos, a.ypos) < this.size + a.size) { 
+    if(dist(this.xpos, this.ypos, a.xpos, a.ypos) < a.size ) { 
        return true;
     } else { 
        return false;

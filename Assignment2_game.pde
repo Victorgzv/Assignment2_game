@@ -48,6 +48,17 @@ fill(255);
 rect(0,0,width,height);
 }
 
-void keypressed() {
-
-}
+void keyPressed()
+    {
+      if (key=='a' && gameState =="PLAY"){
+        if (player.hspeed>-30 ){
+          player.hspeed+=-2;
+        }
+      }
+      if (key==('d')&& gameState =="PLAY"){
+        if (player.hspeed<30){
+          player.hspeed+=2;
+        }
+      }
+ 
+    }
