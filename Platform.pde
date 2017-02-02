@@ -1,0 +1,4 @@
+class Platform{
+  public Platform(){
+  }
+}
