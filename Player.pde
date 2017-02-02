@@ -16,11 +16,11 @@ class Player{
           ypos+=vspeed;//Increase verticall speed
           //bounce off walls
           if (xpos>800){//Left wall
-            hspeed=-0.7*hspeed;
+            hspeed=-0.5*hspeed;
             xpos=800;
           }
           if (xpos<0){//right wall
-            hspeed=-0.7*hspeed;
+            hspeed=-0.5*hspeed;
             xpos=0;
           }
           //bounce off top of screen
@@ -55,7 +55,7 @@ class Player{
               acceleration=-4;  
               //bounce effect
               if (vspeed>0){
-                vspeed=-0.5*vspeed;
+                vspeed=-0.3*vspeed;
               }
           }else{
                 acceleration=0.01;
