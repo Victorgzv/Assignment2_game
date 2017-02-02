@@ -2,13 +2,13 @@ class Platform{
   color Color;
   float  xpos,ypos,size,speed,initial_speed;
  
-  public Platform(color c, float x, float y, float speed,float initialS){
+  public Platform(color c, float x, float y, float speed,float size){
       this.Color = c;
       this.xpos= x;
       this.ypos=y;
       this.speed=speed;
       this.initial_speed=speed;
-      size=initialS;
+      this.size=size;
   }
   void update(){
           //If the platform hits the borders
