@@ -1,5 +1,6 @@
 String gameState;
 int score=0;
+ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1,platform2;
 void setup(){
