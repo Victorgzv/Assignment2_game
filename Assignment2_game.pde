@@ -39,14 +39,36 @@ void playGame(){
   platform2.update();
   player.render();
   player.update(platform1,platform2);
+  createPoints();
 }
 void winGame(){
 }
 void loseGame(){
 }
 void clearBackground(){
+    background(255);
 fill(255);
 rect(0,0,width,height);
+}
+
+void  createPoints(){
+
+
+   
+  
+    Point point = new Point();
+    point.pos = new PVector(random(100, 700), random(100, 350));
+   
+    gameObjects.add(point);
+     GameObject go = gameObjects.get(0); 
+    go.update();
+    go.render();    
+  
+  
+  
+
+
+
 }
 
 void keyPressed()

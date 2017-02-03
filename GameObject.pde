@@ -10,6 +10,7 @@ abstract class GameObject
   GameObject()
   {
     println("In GameObject default constructor");
+    size=30;
   }
   
   abstract void update();  
