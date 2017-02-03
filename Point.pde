@@ -16,14 +16,25 @@ class Point extends GameObject{
     ellipse(0, 0, 30, 30);
     popMatrix();
   }
-  void update(){
-    theta += 0.1f;
-    pos.add(forward);
+  void update(Player a){
+   
     reenterscreen();
-  }
-   void reenterscreen()
-       //treasure reenters screen after leaving it
+      if (collisionListener(a))
+      {
+        score+=1;  
+         pos.x=random(100,700);
+        pos.y=random(100,350);
+        println(score);
+      }
+    //move with score
+      if (score>=5)
         {
+        theta += 0.1f;
+    pos.add(forward);
+        }
+  }
+   void reenterscreen(){
+           //point reenters screen after leaving it
         if (pos.x>width)
         {
         pos.x=0;
@@ -38,6 +49,15 @@ class Point extends GameObject{
         if (pos.y<0){
         pos.y=height;
         }
-        }
+    }
+     //Calculate distance between player and platforms
+  boolean collisionListener(Player a){
+    
+    if(dist(pos.x, pos.y, a.xpos, a.ypos) < a.size ) { 
+       return true;
+    } else { 
+       return false;
+    }
+  }
 
 }

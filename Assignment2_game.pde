@@ -57,11 +57,11 @@ void  createPoints(){
    
   
     Point point = new Point();
-    point.pos = new PVector(random(100, 700), random(100, 350));
+    point.pos = new PVector(random(100, 700), random(100, 200));
    
     gameObjects.add(point);
-     GameObject go = gameObjects.get(0); 
-    go.update();
+    GameObject go = gameObjects.get(0); 
+    go.update(player);
     go.render();    
   
   

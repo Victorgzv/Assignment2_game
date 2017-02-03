@@ -9,11 +9,10 @@ abstract class GameObject
   
   GameObject()
   {
-    println("In GameObject default constructor");
     size=30;
   }
   
-  abstract void update();  
+  abstract void update(Player a);  
   abstract void render();
   
   //abstract void testMethod();  // Subclasses that dont implement 
