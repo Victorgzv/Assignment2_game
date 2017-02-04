@@ -6,7 +6,7 @@ Platform platform1,platform2;
 void setup(){
 size(800,600);
 gameState="START";
-platform1= new Platform(#00bfff,random(0,width-25),425,1,25);
+platform1= new Platform(#00bfff,random(0,width-25),425,1,55);
 platform2= new Platform(#F50707,random(0,width-25),300,-1,25);
 player= new Player(400,20,3,20,#2F8E0A);
 }

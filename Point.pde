@@ -23,32 +23,37 @@ class Point extends GameObject{
       {
         score+=1;  
          pos.x=random(100,700);
-        pos.y=random(100,350);
+        pos.y=random(50,200);
         println(score);
       }
     //move with score
       if (score>=5)
         {
-        theta += 0.1f;
+        //theta += 0.1f;
     pos.add(forward);
         }
   }
    void reenterscreen(){
-           //point reenters screen after leaving it
-        if (pos.x>width)
-        {
-        pos.x=0;
-        }
-        if (pos.x<0){
-        pos.x=width;
-        }
-        if (pos.y>height)
-        {
-        pos.y=0;
-        }
-        if (pos.y<0){
-        pos.y=height;
-        }
+      
+         //bounce off walls
+          if (pos.x>800){//Left wall
+            forward = new PVector(-1,random(-1,1));
+            pos.add(forward);
+          }
+          if (pos.x<0){//right wall
+            forward = new PVector(1,random(-1,1));
+            pos.add(forward);
+          }
+          //bounce off top of screen
+          if (pos.y<0){
+           forward = new PVector(random(-1,1),1);
+           pos.add(forward);
+          }
+          //Reach bottom of the screen
+          if (pos.y>height){
+           forward = new PVector(random(-1,1),-1);
+            pos.add(forward);
+          }
     }
      //Calculate distance between player and platforms
   boolean collisionListener(Player a){

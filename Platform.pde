@@ -19,11 +19,12 @@ class Platform{
           xpos+=speed;
           fill(Color);
           //ellipse(xpos,ypos,(size),(size));
-          rect(xpos,ypos, size ,size);
-          fill(0,0,0);
-          textSize(25);
-          textAlign(CENTER);
-          text("↑",xpos+12,ypos+22); 
+        
+          rect(xpos,ypos, size ,1);
+          //fill(0,0,0);
+          //extSize(25);
+          //textAlign(CENTER);
+          //text("↑",xpos+12,ypos+22); 
   }
    
 }
