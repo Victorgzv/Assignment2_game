@@ -55,7 +55,7 @@ class Point extends GameObject{
             pos.add(forward);
           }
     }
-     //Calculate distance between player and platforms
+     //Calculate distance between player and point
   boolean collisionListener(Player a){
     
     if(dist(pos.x, pos.y, a.xpos, a.ypos) < a.size ) { 

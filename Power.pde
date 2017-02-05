@@ -12,7 +12,7 @@ public Power(){
             speed=2;
             timecheck=0;
             //time to next spawn
-            
+            randomTime();
             pos.x=0;
             pos.y=300;
             size=25;
@@ -35,10 +35,18 @@ String randomPower(){
    mycolor=powercolors[a];
    return(powers[a]);
 }
-void randomtime(){
+void randomTime(){
    time=second();
    timecheck=(second()+5+int(random(5,15)));
 }
-
+     //Calculate distance between player and power ball
+  boolean collisionListener(Player a){
+    
+    if(dist(pos.x, pos.y, a.xpos, a.ypos) < a.size ) { 
+       return true;
+    } else { 
+       return false;
+    }
+  }
 
 }
