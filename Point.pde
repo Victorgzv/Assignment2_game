@@ -13,7 +13,7 @@ class Point extends GameObject{
    // rotate(theta);
     
    
-    ellipse(0, 0, 30, 30);
+    ellipse(0, 0, size, size);
     popMatrix();
   }
   void update(Player a){
@@ -22,7 +22,7 @@ class Point extends GameObject{
       if (collisionListener(a))
       {
         score+=1;  
-         pos.x=random(100,700);
+        pos.x=random(100,700);
         pos.y=random(50,200);
         println(score);
       }

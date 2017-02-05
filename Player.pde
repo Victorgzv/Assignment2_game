@@ -75,7 +75,7 @@ class Player{
           this.ypos=20;
           this.vspeed=0;
           this.hspeed=0;
-          this.size=20;
+          this.size=30;
           platform1.speed=platform1.initial_speed;
           platform2.speed=platform2.initial_speed;
           platform1.xpos=random(0,width-50);

@@ -9,7 +9,7 @@ abstract class GameObject
   
   GameObject()
   {
-    size=30;
+    size=20;
   }
   
   abstract void update(Player a);  
