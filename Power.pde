@@ -16,7 +16,7 @@ public Power(){
             pos.x=0;
             pos.y=300;
             size=25;
-            type=randompower();
+            type=randomPower();
 
 }
  void update(Player a){
@@ -30,10 +30,14 @@ public Power(){
  
  }
  
-String randompower(){
+String randomPower(){
    int a=int(random(0,3));
    mycolor=powercolors[a];
    return(powers[a]);
+}
+void randomtime(){
+   time=second();
+   timecheck=(second()+5+int(random(5,15)));
 }
 
 
