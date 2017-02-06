@@ -1,3 +1,4 @@
+
 class Platform{
   color Color;
   float  xpos,ypos,size,speed,initial_speed;

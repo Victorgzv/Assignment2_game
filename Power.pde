@@ -19,16 +19,68 @@ public Power(){
             type=randomPower();
 
 }
- void update(Player a){
- 
- 
- 
- 
- }
+void update(Player a)
+          {              
+            //once activated:
+            if (active==true)
+            {
+              
+              //applies effect if it touches Stan
+              if (collisionListener(a))
+                  {
+                    //size + powerup
+                  if (type=="size +")
+                      {
+                      a.size=35;
+                      sizetime=second();
+                      sizecheck=sizetime+20;
+                      a.Color=(#ff00ff);
+                      if (sizecheck>59)
+                        {
+                          sizecheck=sizecheck-60;
+                        }
+                      }
+                  if (type=="jet pack")
+                      {
+                      enablepack=true;
+                      jettime=second();
+                      jetcheck=jettime+15;
+                      if (jetcheck>59)
+                        {
+                          jetcheck=jetcheck-60;
+                        }
+                      }
+                  if (type=="slowmo")
+                      {
+                      frameRate(15);
+                      slowed=true;
+                      slowtime=second();
+                      slowcheck=slowtime+15;
+                      if (slowcheck>59)
+                        {
+                          slowcheck=slowcheck-60;
+                        }
+                      }
+                  reset();
+                  }
  void render(){
  
  
  }
+ void reset()
+              {
+              active=false;
+              xpos=floor(random(0,2))*800;
+              if (xpos>400){
+               speed=-1*random(1,3); 
+              }
+              else{
+              speed=random(1,3); 
+              }
+              type=randomPower();
+              ypos=random(50,500);
+              randomTime();  
+              }
  
 String randomPower(){
    int a=int(random(0,3));

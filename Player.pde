@@ -1,4 +1,5 @@
-class Player{
+ 
+ class Player{
    boolean bounced;
    int size;
    float xpos,ypos,acceleration,vspeed,hspeed;
