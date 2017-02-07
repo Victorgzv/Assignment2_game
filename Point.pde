@@ -1,11 +1,38 @@
 class Point extends GameObject{
   float theta;
+  PShape frog, head, body,legUpL,legUpR,legDownL,legDownR;
   public Point(){
   theta=0;
   pos = new PVector(random(100, 700), random(100, 200));
   forward = new PVector(random(-1, 1), random(-1, 1));
   forward.normalize();
 
+  }
+  void create(){
+  // Create the shape group
+  frog = createShape(GROUP);
+  legUpL = createShape(LINE, 60, 100, 10, 60);
+  legUpL.setStroke(color(#20C927));
+  legUpR = createShape(LINE, 60, 100, 110, 60);
+  legUpR.setStroke(color(#20C927));
+  legDownL = createShape(LINE, 60, 100, 10, 140);
+  legDownL.setStroke(color(#20C927));
+  legDownR = createShape(LINE, 60, 100, 110, 140);
+  legDownR.setStroke(color(#20C927));
+  noStroke();
+  head = createShape(ELLIPSE, 60, 70, 30, 30);
+  head.setFill(color(#20C927));
+  body = createShape(ELLIPSE, 60, 100, 60, 60);
+  body.setFill(color(#20C927));
+  
+  frog.addChild(legUpL);
+  frog.addChild(legUpR);
+  frog.addChild(legDownL);
+  frog.addChild(legDownR);
+  frog.addChild(body);
+  frog.addChild(head);
+  
+  
   }
   void render(){
     pushMatrix();

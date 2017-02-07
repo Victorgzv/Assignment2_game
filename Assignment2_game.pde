@@ -10,7 +10,7 @@ void setup(){
 size(800,700);
 gameState="START";
 platform1= new Platform(#00bfff,random(0,width-25),height/2+200,1,55);
-platform2= new Platform(#F50707,random(0,width-25),height/+200,-1,55);
+platform2= new Platform(#F50707,random(0,width-25),height/2+50,-1,55);
 player= new Player(400,20,3,30,#2F8E0A);
 }
 void draw(){
