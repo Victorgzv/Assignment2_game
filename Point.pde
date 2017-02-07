@@ -1,28 +1,31 @@
 class Point extends GameObject{
   float theta;
+  float radius;
   PShape frog, head, body,legUpL,legUpR,legDownL,legDownR;
-  public Point(){
+  Point(float size){
+  this.size=size;
   theta=0;
   pos = new PVector(random(100, 700), random(100, 200));
   forward = new PVector(random(-1, 1), random(-1, 1));
   forward.normalize();
-
+  radius= size/2;
+  create();
   }
   void create(){
-  // Create the shape group
+   // Create the shape group
   frog = createShape(GROUP);
-  legUpL = createShape(LINE, 60, 100, 10, 60);
+  legUpL = createShape(LINE, 0, 0, -radius, -radius);
   legUpL.setStroke(color(#20C927));
-  legUpR = createShape(LINE, 60, 100, 110, 60);
+  legUpR = createShape(LINE, 0, 0, +radius, -radius);
   legUpR.setStroke(color(#20C927));
-  legDownL = createShape(LINE, 60, 100, 10, 140);
+  legDownL = createShape(LINE, 0, 0, -radius, radius);
   legDownL.setStroke(color(#20C927));
-  legDownR = createShape(LINE, 60, 100, 110, 140);
+  legDownR = createShape(LINE, 0, 0, radius, radius);
   legDownR.setStroke(color(#20C927));
   noStroke();
-  head = createShape(ELLIPSE, 60, 70, 30, 30);
+  head = createShape(ELLIPSE, 0, -radius+20, 30, 30);
   head.setFill(color(#20C927));
-  body = createShape(ELLIPSE, 60, 100, 60, 60);
+  body = createShape(ELLIPSE, 0, 0, 60, 60);
   body.setFill(color(#20C927));
   
   frog.addChild(legUpL);
@@ -33,14 +36,16 @@ class Point extends GameObject{
   frog.addChild(head);
   
   
+  
   }
   void render(){
     pushMatrix();
     translate(pos.x, pos.y);
-    fill(0);
+    
    // rotate(theta);
-    ellipse(0, 0, size, size);
-    popMatrix();
+   //ellipse(0, 0, size, size);
+    shape(frog, 0, 0);
+    popMatrix(); // Restore the transform
   }
   void update(Player a){
    
