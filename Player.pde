@@ -16,7 +16,7 @@
   void render(){ 
           ypos+=vspeed;//Increase verticall speed
           //bounce off walls
-          if (xpos>800){//Left wall
+          if (xpos>width){//Left wall
             hspeed=-0.5*hspeed;
             xpos=800;
           }

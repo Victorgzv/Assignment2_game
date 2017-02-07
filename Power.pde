@@ -13,8 +13,8 @@ public Power(){
             timecheck=0;
             //time to next spawn
             randomTime();
-            pos.x=0;
-            pos.y=300;
+            forward = new PVector(random(-1, 1), random(-1, 1));
+            forward.normalize();
             size=25;
             type=randomPower();
 
@@ -65,8 +65,18 @@ void update(Player a)
             }
           }
  void render(){
- 
- 
+  xpos+=speed;
+  fill(mycolor);
+  ellipse(xpos,ypos,size,size);
+  
+  if (type=="jet pack"){
+    fill(0,0,0);
+  }else{
+    fill(255,255,255);
+  }
+  textSize(20);
+  textAlign(CENTER);
+  text("¤",xpos+0.6,ypos+7.5); 
  }
  void reset()
               {

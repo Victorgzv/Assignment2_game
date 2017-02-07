@@ -2,9 +2,10 @@ class Point extends GameObject{
   float theta;
   public Point(){
   theta=0;
+  pos = new PVector(random(100, 700), random(100, 200));
   forward = new PVector(random(-1, 1), random(-1, 1));
   forward.normalize();
-  
+
   }
   void render(){
     pushMatrix();

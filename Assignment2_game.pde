@@ -6,10 +6,11 @@ Platform platform1,platform2;
 boolean enablepack=false;
 boolean slowed=false;
 void setup(){
-size(800,600);
+//fullScreen();
+size(800,700);
 gameState="START";
-platform1= new Platform(#00bfff,random(0,width-25),425,1,55);
-platform2= new Platform(#F50707,random(0,width-25),300,-1,55);
+platform1= new Platform(#00bfff,random(0,width-25),height/2+200,1,55);
+platform2= new Platform(#F50707,random(0,width-25),height/+200,-1,55);
 player= new Player(400,20,3,30,#2F8E0A);
 }
 void draw(){
@@ -54,23 +55,11 @@ rect(0,0,width,height);
 }
 
 void  createPoints(){
-
-
-   
-  
     Point point = new Point();
-    point.pos = new PVector(random(100, 700), random(100, 200));
-   
     gameObjects.add(point);
     GameObject go = gameObjects.get(0); 
     go.update(player);
     go.render();    
-  
-  
-  
-
-
-
 }
 
 void keyPressed()
