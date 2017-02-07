@@ -75,5 +75,8 @@ void keyPressed()
           player.hspeed+=2;
         }
       }
+        if (key==('m')&& gameState =="PLAY"){
+        score++;
+      }
  
     }

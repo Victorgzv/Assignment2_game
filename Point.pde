@@ -14,18 +14,18 @@ class Point extends GameObject{
   void create(){
    // Create the shape group
   frog = createShape(GROUP);
-  legUpL = createShape(LINE, 0, 0, -radius, -radius);
+  legUpL = createShape(LINE, 0, 0, -radius-size, -radius-size);
   legUpL.setStroke(color(#20C927));
-  legUpR = createShape(LINE, 0, 0, +radius, -radius);
+  legUpR = createShape(LINE, 0, 0, +radius+size, -radius-size);
   legUpR.setStroke(color(#20C927));
-  legDownL = createShape(LINE, 0, 0, -radius, radius);
+  legDownL = createShape(LINE, 0, 0, -radius-size, radius+size);
   legDownL.setStroke(color(#20C927));
-  legDownR = createShape(LINE, 0, 0, radius, radius);
+  legDownR = createShape(LINE, 0, 0, radius+size, radius+size);
   legDownR.setStroke(color(#20C927));
   noStroke();
-  head = createShape(ELLIPSE, 0, -radius+20, 30, 30);
+  head = createShape(ELLIPSE, 0, -radius-size, 10, 10);
   head.setFill(color(#20C927));
-  body = createShape(ELLIPSE, 0, 0, 60, 60);
+  body = createShape(ELLIPSE, 0, 0, 25, 25);
   body.setFill(color(#20C927));
   
   frog.addChild(legUpL);
@@ -42,7 +42,7 @@ class Point extends GameObject{
     pushMatrix();
     translate(pos.x, pos.y);
     
-   // rotate(theta);
+   rotate(theta);
    //ellipse(0, 0, size, size);
     shape(frog, 0, 0);
     popMatrix(); // Restore the transform
@@ -56,11 +56,14 @@ class Point extends GameObject{
         pos.x=random(100,700);
         pos.y=random(50,200);
         println(score);
+        theta=random(0,3.14f);
       }
     //move with score
       if (score>=5)
         {
-        //theta += 0.1f;
+   
+    forward.x = sin(theta);
+    forward.y  = -cos(theta);
     pos.add(forward);
         }
   }
@@ -68,22 +71,31 @@ class Point extends GameObject{
       
          //bounce off walls
           if (pos.x>800){//Left wall
-            forward = new PVector(-1,random(-1,1));
-            pos.add(forward);
+           theta = random(-1,-1.5f);
+          forward.x = sin(theta);
+          forward.y  = -cos(theta);
+          pos.add(forward);
           }
           if (pos.x<0){//right wall
-            forward = new PVector(1,random(-1,1));
-            pos.add(forward);
+          theta = random(1,1.5f);
+          forward.x = sin(theta);
+          forward.y  = -cos(theta);
+          pos.add(forward);
           }
           //bounce off top of screen
           if (pos.y<0){
-           forward = new PVector(random(-1,1),1);
-           pos.add(forward);
+           //forward = new PVector(random(-1,1),1);
+          theta = random(0f,3.14f);
+          forward.x = sin(theta);
+          forward.y  = -cos(theta);
+          pos.add(forward);
           }
           //Reach bottom of the screen
           if (pos.y>height){
-           forward = new PVector(random(-1,1),-1);
-            pos.add(forward);
+          theta = random(0f,3.14f);
+          forward.x = sin(theta);
+          forward.y  = -cos(theta);
+          pos.add(forward);
           }
     }
      //Calculate distance between player and point
