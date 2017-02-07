@@ -3,8 +3,7 @@
 // If the the subclass implements the abstract methods
 abstract class GameObject
 {
-  PVector pos;
-  PVector forward;
+  PVector pos,forward;
   float size;
   
   GameObject()

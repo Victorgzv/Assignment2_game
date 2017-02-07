@@ -5,6 +5,7 @@ Player player;
 Platform platform1,platform2;
 boolean enablepack=false;
 boolean slowed=false;
+float timeDelta = 1.0f / 60.0f;
 void setup(){
 //fullScreen();
 size(800,700);

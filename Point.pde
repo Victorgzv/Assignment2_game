@@ -6,7 +6,7 @@ class Point extends GameObject{
   this.size=size;
   theta=0;
   pos = new PVector(random(100, 700), random(100, 200));
-  forward = new PVector(random(-1, 1), random(-1, 1));
+  forward = new PVector(sin(theta),-cos(theta));
   forward.normalize();
   radius= size/2;
   create();
@@ -41,9 +41,7 @@ class Point extends GameObject{
   void render(){
     pushMatrix();
     translate(pos.x, pos.y);
-    
-   rotate(theta);
-   //ellipse(0, 0, size, size);
+    rotate(theta);
     shape(frog, 0, 0);
     popMatrix(); // Restore the transform
   }
@@ -53,31 +51,49 @@ class Point extends GameObject{
       if (collisionListener(a))
       {
         score+=1;  
-        pos.x=random(100,700);
-        pos.y=random(50,200);
+        pos.x=random(60,width-60);
+        pos.y=random(0+size*2,350);
         println(score);
         theta=random(0,3.14f);
       }
     //move with score
-      if (score>=5)
-        {
-   
+   if (score>=5){
     forward.x = sin(theta);
     forward.y  = -cos(theta);
     pos.add(forward);
-        }
+   }
+   if(score>=10){
+   forward.x = sin(theta)*0.5;
+   forward.y  = -cos(theta)*0.5;
+   pos.add(forward);
+   }
+   if(score>=15){
+   forward.x = sin(theta)*1;
+   forward.y  = -cos(theta)*1;
+   pos.add(forward);
+   }
+   if(score>=20){
+   forward.x = sin(theta)*2;
+   forward.y  = -cos(theta)*2;
+   pos.add(forward);
+   }
+   if(score>=25){
+   forward.x = sin(theta)*3;
+   forward.y  = -cos(theta)*3;
+   pos.add(forward);
+   }
   }
    void reenterscreen(){
       
          //bounce off walls
           if (pos.x>800){//Left wall
-           theta = random(-1,-1.5f);
+           theta = random(-1,-2.5f);
           forward.x = sin(theta);
           forward.y  = -cos(theta);
           pos.add(forward);
           }
           if (pos.x<0){//right wall
-          theta = random(1,1.5f);
+         theta = random(1,2.5f);
           forward.x = sin(theta);
           forward.y  = -cos(theta);
           pos.add(forward);
@@ -85,14 +101,14 @@ class Point extends GameObject{
           //bounce off top of screen
           if (pos.y<0){
            //forward = new PVector(random(-1,1),1);
-          theta = random(0f,3.14f);
+          theta = random(0.0,3.14f);
           forward.x = sin(theta);
           forward.y  = -cos(theta);
           pos.add(forward);
           }
           //Reach bottom of the screen
           if (pos.y>height){
-          theta = random(0f,3.14f);
+          theta = random(0.0,3.14f);
           forward.x = sin(theta);
           forward.y  = -cos(theta);
           pos.add(forward);
