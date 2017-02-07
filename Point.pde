@@ -11,8 +11,6 @@ class Point extends GameObject{
     translate(pos.x, pos.y);
     fill(0);
    // rotate(theta);
-    
-   
     ellipse(0, 0, size, size);
     popMatrix();
   }

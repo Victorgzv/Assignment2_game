@@ -3,6 +3,8 @@ int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1,platform2;
+boolean enablepack=false;
+boolean slowed=false;
 void setup(){
 size(800,600);
 gameState="START";

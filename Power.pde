@@ -22,8 +22,7 @@ public Power(){
 void update(Player a)
           {              
             //once activated:
-            if (active==true)
-            {
+            if (active==true){
               
               //applies effect if it touches Stan
               if (collisionListener(a))
@@ -63,6 +62,8 @@ void update(Player a)
                       }
                   reset();
                   }
+            }
+          }
  void render(){
  
  
