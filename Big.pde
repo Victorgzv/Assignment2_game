@@ -84,7 +84,7 @@ class Big extends GameObject {
     {
       fill(myColor);
       textSize(20);
-      text("Size: " , 650, 35);
+      text("Size: " , 620, 35);
       textAlign(CENTER, CENTER);
       text(timeLeft, 700, 35);
       if (timeLeft==0)

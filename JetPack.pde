@@ -84,7 +84,7 @@ class JetPack extends GameObject {
     {
       fill(myColor);
       textSize(20);
-      text("JetPack: " , 650, 115);
+      text("JetPack: " , 620, 115);
       textAlign(CENTER, CENTER);
       text(timeLeft, 700, 115);
       if (timeLeft==0)

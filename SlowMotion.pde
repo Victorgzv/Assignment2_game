@@ -85,7 +85,7 @@ class SlowMotion extends GameObject {
     {
       fill(myColor);
       textSize(20);
-      text("Slow Motion: " , 620, 75);
+      text("Slow Motion:     " , 620, 75);
       textAlign(CENTER, CENTER);
       text( timeLeft, 700, 75);
       if (timeLeft==0)

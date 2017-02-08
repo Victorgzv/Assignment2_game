@@ -1,6 +1,7 @@
 import ddf.minim.*;
 Minim minim;
 AudioPlayer song;
+PFont font,font2;
 String gameState;
 int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -16,6 +17,7 @@ int d;
 void setup() {
   //fullScreen();
   size(800, 700);
+
   minim = new Minim(this);
   gameState="START";
   platform1= new Platform( random(0, width-25), height/2+200, 1, 55);
@@ -46,21 +48,20 @@ void startGame() {
   textAlign(CENTER);
   textSize(18);
   fill(255, 0, 0);
-  text("Click Anywhere to Play!!!", width/2, height/2);
+  text("Click to Play Again", width/2, height/2);
   if (mousePressed==true) {
     gameState="PLAY";
-      score=0;
+    score=0;
   }
-  if(gameState=="START"){
-      splash();
+  if (gameState=="START") {
+    splash();
   }
-  if(gameState=="LOSE"){
-  textAlign(CENTER);
-  textSize(28);
-  fill(255, 0, 0);
-  text("Your score: "+ score, width/2, height/2-300);
+  if (gameState=="LOSE") {
+    textAlign(CENTER);
+    textSize(28);
+    fill(255, 0, 0);
+    text("Your score: "+ score, width/2, height/2-300);
   }
-
 }
 void playGame() {
   platform1.update();
@@ -173,56 +174,60 @@ void restart() {
   point2.pos.x=random(60, width-60);
   point2.pos.y=random(0, 350);
 }
-void splash(){
-      background(250);
-      textSize(20);
-      textAlign(CENTER,CENTER);
-       fill(color( #FF8F05));
-      text("Use 'a' and 'd' to accelerate     left or right", 400, 200);
-      ellipse(475,203,20,20);
-      
-      fill(color(#32b9ff));
-      text("Score points by collecting frogs",400,300);
-  
-      fill(0,0,0);
-      textSize(20);
-      textAlign(CENTER);
-      
-      
-      fill(color(#ff7832));
-      text("Bounce off of the platforms to not fall!",400,400);
-      
-      
-      
-      fill(0);
-      text("Collect                         for powerups!",400,500);
-      fill(color(#F51414));
-      ellipse(320,490,25,25);
-      fill(0);
-      text("¤",320+0.41,490  +8.5);
-      
-      
-      fill(color(#16ACF5));
-      ellipse(361,490,25,25);
-      fill(0);
-      text("¤",361+0.41,490  +8.5);
-     
-      fill(color(#F9FA1E));
-      ellipse(400,490,25,25);
-      fill(0);
-      text("¤",400+0.41,490  +8.5);
-      
-      textSize(18);
-      fill(color(#F51414));
-      text("Red enables JetPack (WASD)",400,550);
-      fill(color(#16ACF5));
-      text("Blue slows time",400,580);
-       fill(color(#F9FA1E));
-      text("Yellow increases size",400,610);
-      textSize(40);
-      fill(0);
-      text("Click to Continue",400,700);
-      
-      
-      
+void splash() {
+  background(250);
+
+  fill(#05AD2D);
+  font = createFont("flipps.otf", 50);
+  textFont(font);
+  text("CATCH THE FROG", width/2, 100);
+  textSize(20);
+  textAlign(CENTER, CENTER);
+  fill(color( #FF8F05));
+  font2 = createFont("Verdana", 20);
+  textFont(font2);
+  text("Use 'a' and 'd' to accelerate     left or right", 400, 200);
+  ellipse(485, 203, 20, 20);
+
+  fill(color(#32b9ff));
+  text("Score points by collecting frogs", 400, 300);
+
+  fill(0, 0, 0);
+  textSize(20);
+  textAlign(CENTER);
+
+
+  fill(color(#ff7832));
+  text("Bounce off of the platforms to not fall!", 400, 400);
+
+
+
+  fill(0);
+  text("Collect                         for powerups!", 400, 500);
+  fill(color(#F51414));
+  ellipse(320, 490, 25, 25);
+  fill(0);
+  text("¤", 320+0.41, 490  +8.5);
+
+
+  fill(color(#16ACF5));
+  ellipse(361, 490, 25, 25);
+  fill(0);
+  text("¤", 361+0.41, 490  +8.5);
+
+  fill(color(#F9FA1E));
+  ellipse(400, 490, 25, 25);
+  fill(0);
+  text("¤", 400+0.41, 490  +8.5);
+
+  textSize(18);
+  fill(color(#F51414));
+  text("Red enables JetPack (WASD)", 400, 550);
+  fill(color(#16ACF5));
+  text("Blue slows time", 400, 580);
+  fill(color(#F9FA1E));
+  text("Yellow increases size", 400, 610);
+  textSize(40);
+  fill(0);
+  text("Click to Continue", 400, 700);
 }
