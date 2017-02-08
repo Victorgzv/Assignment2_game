@@ -43,15 +43,7 @@ void playGame() {
   player.render();
   player.update(platform1, platform2);
   createPoints();
-  fill(0, 102, 153);
-  textSize(70);
-  textAlign(CENTER, CENTER);
-  text(score, 400, 200);
-  fill(200, 50, 53);
-  int level=(floor(score/5)+1);
-  textSize(30);
-  textAlign(CENTER, CENTER);
-  text(("Level "+str(level)), 400, 35);
+  printScore();
 }
 void winGame() {
 }
@@ -71,7 +63,17 @@ void  createPoints() {
   go.update(player);
   go.render();
 }
-
+void printScore(){
+  fill(0, 102, 153);
+  textSize(70);
+  textAlign(CENTER, CENTER);
+  text(score, 400, 200);
+  fill(200, 50, 53);
+  int level=(floor(score/5)+1);
+  textSize(30);
+  textAlign(CENTER, CENTER);
+  text(("Level "+str(level)), 400, 35);
+}
 void keyPressed()
 {
   if (key=='a' && gameState =="PLAY") {

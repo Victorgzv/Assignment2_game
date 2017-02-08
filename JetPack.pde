@@ -36,13 +36,20 @@ class JetPack extends GameObject {
     text("¤", pos.x+0.6, pos.y+7.5);
     popMatrix(); // Restore the transform
   }
-
+  void move() {
+    pos.x=random(60, width-60);
+    pos.y=random(0+size*2, 350);
+    theta=random(0, 3.14f);
+    forward.x = sin(theta);
+    forward.y  = -cos(theta);
+    pos.add(forward);
+  }
   void reset()
   {
     active=false;
     pos.x=floor(random(0, 2))*width;
     if (pos.x>400) {
-     // speed=-1*random(1, 3);
+      // speed=-1*random(1, 3);
     } else {
       //speed=random(1, 3);
     }
@@ -50,7 +57,7 @@ class JetPack extends GameObject {
     randomTime();
   }
 
- 
+
   void randomTime() {
     time=second();
     timecheck=(second()+5+int(random(5, 15)));

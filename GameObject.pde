@@ -4,7 +4,7 @@
 abstract class GameObject
 {
   PVector pos,forward;
-  float size;
+  float size,theta;
   
   GameObject()
   {
