@@ -102,14 +102,6 @@ void randomTime(){
    time=second();
    timecheck=(second()+5+int(random(5,15)));
 }
-     //Calculate distance between player and power ball
-  boolean collisionListener(Player a){
-    
-    if(dist(pos.x, pos.y, a.xpos, a.ypos) < a.size ) { 
-       return true;
-    } else { 
-       return false;
-    }
-  }
+
 
 }

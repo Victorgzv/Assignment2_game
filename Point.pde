@@ -78,8 +78,8 @@ class Point extends GameObject{
    pos.add(forward);
    }
    if(score>=25){
-   forward.x = sin(theta)*3;
-   forward.y  = -cos(theta)*3;
+   forward.x = sin(theta)*2.5;
+   forward.y  = -cos(theta)*2.5;
    pos.add(forward);
    }
   }

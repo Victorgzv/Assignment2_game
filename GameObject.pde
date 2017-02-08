@@ -13,7 +13,7 @@ abstract class GameObject
   
   abstract void update(Player a);  
   abstract void render();
-  
+  abstract boolean collisionListener(Player a);
   //abstract void testMethod();  // Subclasses that dont implement 
   // This method are also abstract
 }
