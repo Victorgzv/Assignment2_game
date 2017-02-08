@@ -2,6 +2,7 @@ class JetPack extends GameObject {
   color myColor;
   boolean active;
   int jetTime, jetCheck, timecheck;
+  float time;
   JetPack() {
     active=false;
     myColor=#F51414;
@@ -34,6 +35,25 @@ class JetPack extends GameObject {
     textAlign(CENTER);
     text("¤", pos.x+0.6, pos.y+7.5);
     popMatrix(); // Restore the transform
+  }
+
+  void reset()
+  {
+    active=false;
+    pos.x=floor(random(0, 2))*width;
+    if (pos.x>400) {
+     // speed=-1*random(1, 3);
+    } else {
+      //speed=random(1, 3);
+    }
+    pos.y=random(50, 500);
+    randomTime();
+  }
+
+ 
+  void randomTime() {
+    time=second();
+    timecheck=(second()+5+int(random(5, 15)));
   }
   //Calculate distance between player and power ball
   boolean collisionListener(Player a) {
