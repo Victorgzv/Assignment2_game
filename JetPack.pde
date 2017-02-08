@@ -3,6 +3,7 @@ class JetPack extends GameObject {
   boolean active;
   int jetTime, jetCheck, timecheck;
   float time;
+  int timeLeft;
   JetPack() {
     active=false;
     myColor=#F51414;
@@ -12,29 +13,25 @@ class JetPack extends GameObject {
     forward.normalize();
   }
   void update(Player a) {
-    if (active==true) {
-      if (collisionListener(a)) {
-        enablepack=true;
-        jetTime=second();
-        jetCheck=jetTime+15;
-        if (jetCheck>59)
-        {
-          jetCheck=jetCheck-60;
-        }
-        reset();
+
+    if (collisionListener(a)) {
+      enablepack=true;
+      jetTime=second();
+      jetCheck=jetTime+15;
+      if (jetCheck>59)
+      {
+        jetCheck=jetCheck-60;
       }
+      move();
     }
   }
 
   void render() {
-    pushMatrix();
-    translate(pos.x, pos.y);
     fill(myColor);
     ellipse(pos.x, pos.y, size, size);
     textSize(20);
     textAlign(CENTER);
     text("¤", pos.x+0.6, pos.y+7.5);
-    popMatrix(); // Restore the transform
   }
   void move() {
     pos.x=random(60, width-60);
@@ -43,6 +40,7 @@ class JetPack extends GameObject {
     forward.x = sin(theta);
     forward.y  = -cos(theta);
     pos.add(forward);
+    randomTime();
   }
   void reset()
   {
@@ -69,6 +67,21 @@ class JetPack extends GameObject {
       return true;
     } else { 
       return false;
+    }
+  }
+  void displayTimeLeft() {
+    timeLeft=((this.jetCheck+60-second())%60);
+    if (enablepack==true)
+    {
+    
+      textSize(40);
+      textAlign(CENTER, CENTER);
+      text(timeLeft, 700, 35);
+      if (timeLeft==0)
+      {
+        enablepack=false;
+        //Change player color back to normal
+      }
     }
   }
 }

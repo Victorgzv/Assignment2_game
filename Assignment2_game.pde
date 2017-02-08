@@ -3,6 +3,7 @@ int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1, platform2;
+JetPack j1;
 boolean enablepack=false;
 boolean slowed=false;
 float timeDelta = 1.0f / 60.0f;
@@ -13,6 +14,7 @@ void setup() {
   platform1= new Platform(#00bfff, random(0, width-25), height/2+200, 1, 55);
   platform2= new Platform(#F50707, random(0, width-25), height/2+50, -1, 55);
   player= new Player(400, 20, 3, 30, #2F8E0A);
+  j1= new JetPack();
 }
 void draw() {
   clearBackground();
@@ -62,8 +64,12 @@ void  createPoints() {
   go.render();  
   go.update(player);
   go.render();
+  j1.render();
+  j1.update(player);
+  j1.render();
+  j1.displayTimeLeft();
 }
-void printScore(){
+void printScore() {
   fill(0, 102, 153);
   textSize(70);
   textAlign(CENTER, CENTER);
@@ -89,12 +95,16 @@ void keyPressed()
   if (key==('m')&& gameState =="PLAY") {
     score++;
   }
-  if (key==('w') && enablepack==true)
-  {
-    
+  if (key==('w') && enablepack==true){
+    if (player.vspeed>0){
+      player.vspeed=player.vspeed*0.5;
+    }
+    player.vspeed+=(-2);
   }
-  if (key==('s') && enablepack==true)
-  {
-    
+  if (key==('s') && enablepack==true){
+    if (player.vspeed<0){
+      player.vspeed=player.vspeed*0.5;
+    }
+    player.vspeed+=(2);
   }
 }
