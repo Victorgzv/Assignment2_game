@@ -1,7 +1,7 @@
 <h1>OOP Game Assignment 2016/2017</h1>
 <ul>
 <li>Assignment: Create a game in Processing</li>
-<li>My game: Fruit Fever</li>
+
 </ul>
 <h2>CONCEPT</h2>
 <p>I have called this game Catch the Frog. Inspired by the arcde game Ping Pong but in this case we control the movement of the ball instead of the trampoline platfrms
