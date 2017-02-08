@@ -1,13 +1,13 @@
 class SlowMotion extends GameObject {
   color myColor;
-  boolean active;
   int powerTime, powerTimeCheck, timecheck;
   float time;
   int timeLeft;
+   boolean active;
   SlowMotion() {
     active=false;
     myColor=#F9FA1E;
-    timecheck=0;
+    this.timecheck=0;
     //Time to next spawn
     randomTime();
     pos = new PVector(random(0, width/2), random(0,500));

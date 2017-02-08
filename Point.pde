@@ -120,4 +120,5 @@ class Point extends GameObject {
       return false;
     }
   }
+  void displayTimeLeft(){}
 }

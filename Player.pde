@@ -34,7 +34,7 @@
           score=0;
           //Reset Game
           gameState="LOSE";
-          reset();
+          resetGame();
           }
          xpos+=hspeed;//Increase horizontal speed
           fill(Color);
@@ -70,13 +70,13 @@
             
        
    }
-   void reset(){
+   void resetGame(){
         // If Player hits the bottom of the screen
           this.xpos=400;
           this.ypos=20;
           this.vspeed=0;
           this.hspeed=0;
-          this.size=30;
+          this.size=20;
           platform1.speed=platform1.initial_speed;
           platform2.speed=platform2.initial_speed;
           platform1.xpos=random(0,width-50);

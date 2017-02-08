@@ -6,8 +6,8 @@ class Big extends GameObject {
   int timeLeft;
   Big() {
     active=false;
-    myColor=#F9FA1E;
-    timecheck=0;
+    myColor=#00A4FA;
+    this.timecheck=0;
     //Time to next spawn
     randomTime();
     pos = new PVector(random(0, width/2), random(0,500));
@@ -76,7 +76,7 @@ class Big extends GameObject {
   }
   void displayTimeLeft() {
     timeLeft=((this.powerTimeCheck+60-second())%60);
-    if (slowed==true)
+    if (player.size>20)
     {
       fill(myColor);
       textSize(40);
@@ -84,7 +84,7 @@ class Big extends GameObject {
       text(timeLeft, 700, 35);
       if (timeLeft==0)
       {
-       player.size=10;
+       player.size=20;
         //Change player color back to normal
       }
     }

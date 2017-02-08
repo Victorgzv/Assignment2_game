@@ -1,9 +1,12 @@
+//def
 String gameState;
 int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1, platform2;
-SlowMotion j1;
+JetPack power1;
+Big power2;
+SlowMotion power3;
 boolean enablepack=false;
 boolean slowed=false;
 float timeDelta = 1.0f / 60.0f;
@@ -11,12 +14,13 @@ int d;
 void setup() {
   //fullScreen();
   size(800, 700);
-  frameRate( 30 ); 
   gameState="START";
-  platform1= new Platform(#00bfff, random(0, width-25), height/2+200, 1, 55);
-  platform2= new Platform(#F50707, random(0, width-25), height/2+50, -1, 55);
-  player= new Player(400, 20, 5, 20, #2F8E0A);
-  j1= new SlowMotion();
+  platform1= new Platform( random(0, width-25), height/2+200, 1, 55);
+  platform2= new Platform( random(0, width-25), height/2+50, -1, 55);
+  player= new Player(400, 20, 3, 30, #2F8E0A);
+  power1= new JetPack();
+  power2= new Big();
+  power3= new SlowMotion();
 }
 void draw() {
   clearBackground();
@@ -46,7 +50,6 @@ void playGame() {
   platform2.update();
   player.render();
   player.update(platform1, platform2);
-  
   createPoints();
   printScore();
 }
@@ -67,13 +70,30 @@ void  createPoints() {
   go.render();  
   go.update(player);
   go.render();
-  j1.update(player);
-  j1.displayTimeLeft();
+  
+  power1.update(player);
+  power1.displayTimeLeft();
   //Active power ups
-  d=((j1.timecheck+60-second())%60);
-      if (d==0){
-      j1.active=true; 
-}
+  d=((power1.timecheck+60-second())%60);
+  if (d==0) {
+    power1.active=true;
+  }
+  
+  power2.update(player);
+  power2.displayTimeLeft();
+  //Active power ups
+  d=((power2.timecheck+60-second())%60);
+  if (d==0) {
+    power2.active=true;
+  }
+  
+  power3.update(player);
+  power3.displayTimeLeft();
+  //Active power ups
+  d=((power3.timecheck+60-second())%60);
+  if (d==0) {
+    power3.active=true;
+  }
 }
 void printScore() {
   fill(0, 102, 153);
@@ -90,25 +110,25 @@ void keyPressed()
 {
   if (key=='a' && gameState =="PLAY") {
     if (player.hspeed>-30 ) {
-      player.hspeed+=-0.9;
+      player.hspeed+=-2;
     }
   }
   if (key==('d')&& gameState =="PLAY") {
     if (player.hspeed<30) {
-      player.hspeed+=0.9;
+      player.hspeed+=2;
     }
   }
   if (key==('m')&& gameState =="PLAY") {
     score++;
   }
-  if (key==('w') && enablepack==true){
-    if (player.vspeed>0){
+  if (key==('w') && enablepack==true) {
+    if (player.vspeed>0) {
       player.vspeed=player.vspeed*0.2;
     }
     player.vspeed-=2;
   }
-  if (key==('s') && enablepack==true){
-    if (player.vspeed<0){
+  if (key==('s') && enablepack==true) {
+    if (player.vspeed<0) {
       player.vspeed=player.vspeed*0.2;
     }
     player.vspeed+=(2);
