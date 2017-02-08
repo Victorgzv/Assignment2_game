@@ -8,39 +8,30 @@ class JetPack extends GameObject {
     active=false;
     myColor=#F51414;
     timecheck=0;
-    pos = new PVector(random(100, 700), random(100, 200));
+    //Time to next spawn
+    randomTime();
+    pos = new PVector(random(100, 700), 300);
     forward = new PVector(random(-1, 1), random(-1, 1));
     forward.normalize();
   }
   void update(Player a) {
-
-    if (collisionListener(a)) {
-      enablepack=true;
-      jetTime=second();
-      jetCheck=jetTime+15;
-      if (jetCheck>59)
-      {
-        jetCheck=jetCheck-60;
+    if (active==true) {
+      render();
+      if (collisionListener(a)) {
+        enablepack=true;
+        jetTime=second();
+        jetCheck=jetTime+15;
+        if (jetCheck>59)
+        {
+          jetCheck=jetCheck-60;
+        }
       }
-      move();
+      //resets with randomness if powerup leaves screen
+      if (pos.x>width || pos.y<0)
+      {
+        move();
+      }
     }
-  }
-
-  void render() {
-    fill(myColor);
-    ellipse(pos.x, pos.y, size, size);
-    textSize(20);
-    textAlign(CENTER);
-    text("¤", pos.x+0.6, pos.y+7.5);
-  }
-  void move() {
-    pos.x=random(60, width-60);
-    pos.y=random(0+size*2, 350);
-    theta=random(0, 3.14f);
-    forward.x = sin(theta);
-    forward.y  = -cos(theta);
-    pos.add(forward);
-    randomTime();
   }
   void reset()
   {
@@ -54,6 +45,23 @@ class JetPack extends GameObject {
     pos.y=random(50, 500);
     randomTime();
   }
+  void render() {
+    fill(myColor);
+    stroke(0);
+    ellipse(pos.x, pos.y, size, size);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("¤", pos.x+0.6, pos.y+7.5);
+  }
+  void move() {
+    theta=random(0, 3.14f);
+    forward.x = sin(theta);
+    forward.y  = -cos(theta);
+    pos.add(forward);
+    randomTime();
+  }
+
 
 
   void randomTime() {
@@ -73,7 +81,7 @@ class JetPack extends GameObject {
     timeLeft=((this.jetCheck+60-second())%60);
     if (enablepack==true)
     {
-    
+      fill(myColor);
       textSize(40);
       textAlign(CENTER, CENTER);
       text(timeLeft, 700, 35);
