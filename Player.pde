@@ -56,10 +56,10 @@
               acceleration=-4;  
               //bounce effect
               if (vspeed>0){
-                vspeed=-0.3*vspeed;
+                vspeed=-0.5*vspeed;
               }
           }else{
-                acceleration=0.01;
+                acceleration=0.09;
           }
           //vertical speed limiter
           if (pow(vspeed,2)<pow(12,2)){
@@ -67,7 +67,7 @@
           }else{
                vspeed=12; 
           }
-          
+            
        
    }
    void reset(){

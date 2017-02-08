@@ -3,7 +3,7 @@ int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1, platform2;
-JetPack j1;
+SlowMotion j1;
 boolean enablepack=false;
 boolean slowed=false;
 float timeDelta = 1.0f / 60.0f;
@@ -11,11 +11,12 @@ int d;
 void setup() {
   //fullScreen();
   size(800, 700);
+  frameRate( 30 ); 
   gameState="START";
   platform1= new Platform(#00bfff, random(0, width-25), height/2+200, 1, 55);
   platform2= new Platform(#F50707, random(0, width-25), height/2+50, -1, 55);
-  player= new Player(400, 20, 3, 30, #2F8E0A);
-  j1= new JetPack();
+  player= new Player(400, 20, 5, 20, #2F8E0A);
+  j1= new SlowMotion();
 }
 void draw() {
   clearBackground();
@@ -45,6 +46,7 @@ void playGame() {
   platform2.update();
   player.render();
   player.update(platform1, platform2);
+  
   createPoints();
   printScore();
 }
@@ -88,12 +90,12 @@ void keyPressed()
 {
   if (key=='a' && gameState =="PLAY") {
     if (player.hspeed>-30 ) {
-      player.hspeed+=-2;
+      player.hspeed+=-0.;
     }
   }
   if (key==('d')&& gameState =="PLAY") {
     if (player.hspeed<30) {
-      player.hspeed+=2;
+      player.hspeed+=0.8;
     }
   }
   if (key==('m')&& gameState =="PLAY") {

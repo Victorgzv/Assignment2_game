@@ -1,12 +1,12 @@
-class JetPack extends GameObject {
+class SlowMotion extends GameObject {
   color myColor;
   boolean active;
   int powerTime, powerTimeCheck, timecheck;
   float time;
   int timeLeft;
-  JetPack() {
+  SlowMotion() {
     active=false;
-    myColor=#F51414;
+    myColor=#F9FA1E;
     timecheck=0;
     //Time to next spawn
     randomTime();
@@ -18,7 +18,8 @@ class JetPack extends GameObject {
     if (active==true) {
 
       if (collisionListener(a)) {
-        enablepack=true;
+        frameRate(15);
+        slowed=true;
         powerTime=second();
         powerTimeCheck=powerTime+15;
         if (powerTimeCheck>59)
@@ -38,9 +39,9 @@ class JetPack extends GameObject {
   }
   void reset()
   {
-    active=false;
+    active=false; 
     pos.x=random(0,width/2);
-     pos.x=random(0,height/2);
+    pos.x=random(0,height/2);
     randomTime();  
   }
   void render() {
@@ -76,7 +77,7 @@ class JetPack extends GameObject {
   }
   void displayTimeLeft() {
     timeLeft=((this.powerTimeCheck+60-second())%60);
-    if (enablepack==true)
+    if (slowed==true)
     {
       fill(myColor);
       textSize(40);
@@ -84,7 +85,8 @@ class JetPack extends GameObject {
       text(timeLeft, 700, 35);
       if (timeLeft==0)
       {
-        enablepack=false;
+        frameRate(30);
+        slowed=false;
         //Change player color back to normal
       }
     }
