@@ -6,7 +6,7 @@ class SlowMotion extends GameObject {
    boolean active;
   SlowMotion() {
     active=false;
-    myColor=#F9FA1E;
+    myColor=#16ACF5;
     this.timecheck=0;
     //Time to next spawn
     randomTime();

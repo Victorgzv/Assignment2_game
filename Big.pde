@@ -6,8 +6,8 @@ class Big extends GameObject {
   int timeLeft;
   Big() {
     active=false;
-    myColor=#00A4FA;
-    this.timecheck=0;
+    myColor=#F9FA1E;
+    timecheck=0;
     //Time to next spawn
     randomTime();
     pos = new PVector(random(0, width/2), random(0,500));

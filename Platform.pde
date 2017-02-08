@@ -18,14 +18,9 @@ class Platform{
           speed=speed*-1;//Change direction
           }
           xpos+=speed;
-          fill(0);
-          //ellipse(xpos,ypos,(size),(size));
-          
+          fill(255);
           rect(xpos,ypos, size ,10);
-          //fill(0,0,0);
-          //extSize(25);
-          //textAlign(CENTER);
-          //text("↑",xpos+12,ypos+22); 
+    
   }
    
 }
