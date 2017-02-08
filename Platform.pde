@@ -1,6 +1,5 @@
 
 class Platform{
- 
   float  xpos,ypos,size,speed,initial_speed;
  
   public Platform( float x, float y, float speed,float size){
@@ -10,6 +9,7 @@ class Platform{
       this.speed=speed;
       this.initial_speed=speed;
       this.size=size;
+     
   }
   void update(){
           //If the platform hits the borders

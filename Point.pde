@@ -1,6 +1,7 @@
 class Point extends GameObject {
   float radius;
   PShape frog, head, body, legUpL, legUpR, legDownL, legDownR;
+  AudioPlayer croak;
   Point(float size) {
     this.size=size;
     theta=0;
@@ -9,7 +10,7 @@ class Point extends GameObject {
     forward.normalize();
     radius= size/2;
     create();
-
+    croak= minim.loadFile("croak.mp3");
   }
   void create() {
     // Create the shape group
@@ -47,6 +48,8 @@ class Point extends GameObject {
     reenterscreen();
     if (collisionListener(a))
     {
+      croak.play();
+      croak.rewind();
       score+=1;  
       pos.x=random(60, width-60);
       pos.y=random(0+size*2, 350);

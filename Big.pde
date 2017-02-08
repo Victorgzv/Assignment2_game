@@ -4,6 +4,7 @@ class Big extends GameObject {
   int powerTime, powerTimeCheck, timecheck;
   float time;
   int timeLeft;
+  AudioPlayer win;
   Big() {
     active=false;
     myColor=#F9FA1E;
@@ -13,11 +14,14 @@ class Big extends GameObject {
     pos = new PVector(random(0, width/2), random(0,500));
     forward = new PVector(random(-1, 1), random(-1, 1));
     forward.normalize();
+    win=minim.loadFile("powerUp.wav");
   }
   void update(Player a) {
     if (active==true) {
 
       if (collisionListener(a)) {
+        win.play();
+        win.rewind();
         player.size=35;
         powerTime=second();
         powerTimeCheck=powerTime+15;

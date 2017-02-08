@@ -1,5 +1,5 @@
  class Player{
-   AudioPlayer gameover;
+   AudioPlayer gameover,bounce;
    boolean bounced;
    int size;
    float xpos,ypos,acceleration,vspeed,hspeed;
@@ -12,6 +12,7 @@
         this.size=size;
         this.acceleration=0.07;
         this.Color=c;
+        bounce= minim.loadFile("bounce.wav");
         gameover = minim.loadFile("game_over.wav");
   }
   void render(){ 
@@ -49,13 +50,16 @@
     
     if(dist(this.xpos, this.ypos, a.xpos+size, a.ypos) < a.size/2 ) { 
        return true;
-    } else { 
+    } else {
+     
        return false;
     }
   }
   void update(Platform a, Platform b){
             //Player hitting the platforms
           if ((this.collisionListener(a) ||  (this.collisionListener(b))) && vspeed>0){
+             bounce.play();
+              bounce.rewind();
               acceleration=-4;  
               //bounce effect
               if (vspeed>0){

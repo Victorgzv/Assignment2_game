@@ -4,6 +4,7 @@ class SlowMotion extends GameObject {
   float time;
   int timeLeft;
    boolean active;
+   AudioPlayer win;
   SlowMotion() {
     active=false;
     myColor=#16ACF5;
@@ -13,11 +14,14 @@ class SlowMotion extends GameObject {
     pos = new PVector(random(0, width/2), random(0,500));
     forward = new PVector(random(-1, 1), random(-1, 1));
     forward.normalize();
+    win=minim.loadFile("powerUp.wav");
   }
   void update(Player a) {
     if (active==true) {
 
       if (collisionListener(a)) {
+        win.play();
+        win.rewind();
         frameRate(15);
         slowed=true;
         powerTime=second();

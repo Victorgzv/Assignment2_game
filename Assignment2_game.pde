@@ -24,6 +24,9 @@ void setup() {
   power1= new JetPack();
   power2= new Big();
   power3= new SlowMotion();
+  point = new Point(10);
+  point = new Point(5);
+  gameObjects.add(point);
 }
 void draw() {
   clearBackground();
@@ -69,8 +72,7 @@ void clearBackground() {
 }
 
 void  createPoints() {
-  point = new Point(10);
-  gameObjects.add(point);
+  
   GameObject go = gameObjects.get(0); 
   go.render();  
   go.update(player);
