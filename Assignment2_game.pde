@@ -4,6 +4,7 @@ int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 Player player;
 Platform platform1, platform2;
+Point point;
 JetPack power1;
 Big power2;
 SlowMotion power3;
@@ -65,12 +66,13 @@ void clearBackground() {
 }
 
 void  createPoints() {
-  Point point = new Point(10);
+  point = new Point(10);
   gameObjects.add(point);
   GameObject go = gameObjects.get(0); 
   go.render();  
   go.update(player);
   go.render();
+  
   
   power1.update(player);
   power1.displayTimeLeft();
@@ -138,5 +140,12 @@ void keyPressed()
 void restart(){
     power1.active=false;
     power2.active=false;  
-    power3.active=false;  
+    power3.active=false;
+    enablepack=false;
+    slowed=false;
+    power1.timeLeft=0;
+    power2.timeLeft=0;
+    power3.timeLeft=0;
+    point.pos.x=random(60, width-60);
+    point.pos.y=random(0, 350);
 }

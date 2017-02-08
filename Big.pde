@@ -79,7 +79,8 @@ class Big extends GameObject {
     if (player.size>20)
     {
       fill(myColor);
-      textSize(40);
+      textSize(20);
+      text("Size: " , 650, 35);
       textAlign(CENTER, CENTER);
       text(timeLeft, 700, 35);
       if (timeLeft==0)

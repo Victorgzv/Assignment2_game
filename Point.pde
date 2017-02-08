@@ -50,7 +50,6 @@ class Point extends GameObject {
       score+=1;  
       pos.x=random(60, width-60);
       pos.y=random(0+size*2, 350);
-      println(score);
       theta=random(0, 3.14f);
     }
     //move with score
@@ -105,6 +104,8 @@ class Point extends GameObject {
     }
     //Reach bottom of the screen
     if (pos.y>height) {
+      pos.x=random(60, width-60);
+      pos.y=random(0+size*2, 350);
       theta = random(0.0, 3.14f);
       forward.x = sin(theta);
       forward.y  = -cos(theta);
