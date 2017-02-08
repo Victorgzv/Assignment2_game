@@ -66,7 +66,6 @@ void  createPoints() {
   go.update(player);
   go.render();
   j1.update(player);
-  j1.move();
   j1.displayTimeLeft();
   //Active power ups
   d=((j1.timecheck+60-second())%60);

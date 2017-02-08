@@ -10,13 +10,13 @@ class JetPack extends GameObject {
     timecheck=0;
     //Time to next spawn
     randomTime();
-    pos = new PVector(random(100, 700), 300);
+    pos = new PVector(random(0, width/2), random(0,500));
     forward = new PVector(random(-1, 1), random(-1, 1));
     forward.normalize();
   }
   void update(Player a) {
     if (active==true) {
-      render();
+
       if (collisionListener(a)) {
         enablepack=true;
         jetTime=second();
@@ -25,41 +25,38 @@ class JetPack extends GameObject {
         {
           jetCheck=jetCheck-60;
         }
+        reset();
       }
       //resets with randomness if powerup leaves screen
       if (pos.x>width || pos.y<0)
       {
-        move();
+        reset();
       }
+      move();
+      render();
     }
   }
   void reset()
   {
     active=false;
-    pos.x=floor(random(0, 2))*width;
-    if (pos.x>400) {
-      // speed=-1*random(1, 3);
-    } else {
-      //speed=random(1, 3);
-    }
-    pos.y=random(50, 500);
-    randomTime();
+    pos.x=random(0,width/2);
+     pos.x=random(0,height/2);
+    randomTime();  
   }
   void render() {
     fill(myColor);
     stroke(0);
-    ellipse(pos.x, pos.y, size, size);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("¤", pos.x+0.6, pos.y+7.5);
+      ellipse(pos.x, pos.y, size, size);
+      fill(0);
+      textSize(20);
+      textAlign(CENTER);
+      text("¤", pos.x+0.6, pos.y+7.5);
   }
   void move() {
     theta=random(0, 3.14f);
-    forward.x = sin(theta);
-    forward.y  = -cos(theta);
+    forward.x = sin(theta)*2;
+    forward.y  = -cos(theta)*2;
     pos.add(forward);
-    randomTime();
   }
 
 
