@@ -59,7 +59,7 @@ void  createPoints(){
     Point point = new Point(10);
     gameObjects.add(point);
     GameObject go = gameObjects.get(0); 
-     go.render();  
+    go.render();  
     go.update(player);
     go.render();    
 }
