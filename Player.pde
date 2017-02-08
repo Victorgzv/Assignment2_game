@@ -33,7 +33,6 @@
           }
           //Reach bottom of the screen
           if (ypos>height){
-          score=0;
           gameover.play();
           gameover.rewind();
           //Reset Game
