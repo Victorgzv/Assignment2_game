@@ -90,12 +90,12 @@ void keyPressed()
 {
   if (key=='a' && gameState =="PLAY") {
     if (player.hspeed>-30 ) {
-      player.hspeed+=-0.;
+      player.hspeed+=-0.9;
     }
   }
   if (key==('d')&& gameState =="PLAY") {
     if (player.hspeed<30) {
-      player.hspeed+=0.8;
+      player.hspeed+=0.9;
     }
   }
   if (key==('m')&& gameState =="PLAY") {
