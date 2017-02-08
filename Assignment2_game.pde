@@ -1,4 +1,6 @@
-//def
+import ddf.minim.*;
+Minim minim;
+AudioPlayer song;
 String gameState;
 int score=0;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -14,6 +16,7 @@ int d;
 void setup() {
   //fullScreen();
   size(800, 700);
+    minim = new Minim(this);
   gameState="START";
   platform1= new Platform( random(0, width-25), height/2+200, 1, 55);
   platform2= new Platform( random(0, width-25), height/2+50, -1, 55);

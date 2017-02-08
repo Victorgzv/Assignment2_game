@@ -1,5 +1,5 @@
- 
  class Player{
+   AudioPlayer gameover;
    boolean bounced;
    int size;
    float xpos,ypos,acceleration,vspeed,hspeed;
@@ -12,6 +12,7 @@
         this.size=size;
         this.acceleration=0.07;
         this.Color=c;
+        gameover = minim.loadFile("game_over.wav");
   }
   void render(){ 
           ypos+=vspeed;//Increase verticall speed
@@ -32,6 +33,8 @@
           //Reach bottom of the screen
           if (ypos>height){
           score=0;
+          gameover.play();
+          gameover.rewind();
           //Reset Game
           gameState="LOSE";
           resetGame();

@@ -1,5 +1,4 @@
 class Point extends GameObject {
-  
   float radius;
   PShape frog, head, body, legUpL, legUpR, legDownL, legDownR;
   Point(float size) {
@@ -10,6 +9,7 @@ class Point extends GameObject {
     forward.normalize();
     radius= size/2;
     create();
+
   }
   void create() {
     // Create the shape group
@@ -51,6 +51,10 @@ class Point extends GameObject {
       pos.x=random(60, width-60);
       pos.y=random(0+size*2, 350);
       theta=random(0, 3.14f);
+     
+      
+      
+    
     }
     //move with score
     if (score>=5) {
@@ -116,6 +120,7 @@ class Point extends GameObject {
   boolean collisionListener(Player a) {
 
     if (dist(pos.x, pos.y, a.xpos, a.ypos) < a.size ) { 
+     
       return true;
     } else { 
       return false;
