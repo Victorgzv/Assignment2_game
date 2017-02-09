@@ -21,7 +21,6 @@ Jetpack: Adds functionality to W to move UP and S to Move DOWN</p>
 <h2>Functionality</h2>
 <p>Most class(Point,Big,JetPack and SlowMotion) extend the GameObject abstract class. This allows having some variables and methods that are common to these classes </p>
 <ul>
-<li>
 <li><h3>Player</h3></li>
 <p>The player (orange ball) is set to start at the top of the screen and moves downwards. This player behaves in different ways depending on what powers are obtained.It is controlled with A and D and it bounces in the left, right and bottom of the screen. If the player falls the game is over.</p>
 
