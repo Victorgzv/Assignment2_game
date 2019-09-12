@@ -32,10 +32,11 @@ Jetpack: Adds functionality to W to move UP and S to Move DOWN</p>
 
 <li><h3>Power Ups</h3></li>
 <p>There are 3 Power Ups, Jetpacks, Slow Motion and Size alteration, which spawn at random times during a level, they have a time to live which is 15 seconds from spawning.They are randomly generated on the screen from left to right. When the player comes into contact with Jetpack power (red circle ) up it enables moving our player UP and DOWN. When the player comes into contact with Slow Motion (blue circle) power up the game frameRate is slowed down for a certain time and after that it s back to normal. When the player comes into contact with size alteration (yellow ball) its size is 15 pixels bigger. </p>
-</ul>
+
 <li><h3>Sound</h3></li>
 <p>There is sounds played for some events such as consuming power ups, frogs or bouncing off the platforms, etc. </p>
 </ul>
+
 
 
 
