@@ -1,5 +1,6 @@
 <h1>Catch the Frog</h1>
-[![Video demostration](https://img.youtube.com/vi/OHUOquZpyrw/0.jpg)](http://www.youtube.com/watch?v=OHUOquZpyrw)
+[![Video demostration](http://img.youtube.com/vi/OHUOquZpyrw/0.jpg)](http://www.youtube.com/watch?v=OHUOquZpyrw)
+
 
 <h2>CONCEPT</h2>
 <p> Catch the Frog is a game developed in Java and inspired by the arcade game 'Ping Pong'. In this case, the movement of the ball is controlled by the player who can use trampoline platforms to avoid reaching the bottom of the screen.
